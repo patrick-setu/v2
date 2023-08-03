@@ -1,0 +1,16 @@
+Amount of selected seats:
+4
+Selected seats:
+['A5', 'A6', 'B5', 'B6']
+x1 Adult    	$10.00
+x1 Child    	$7.50
+x1 Student 	$9.00
+x1 Pensioner 	$7.00
+Total: $33.50
+
+x1 Adult    	$10.00
+x1 Child    	$7.50
+x2 Student 	$18.00
+x0 Pensioner 	$0.00
+Total: $35.50
+
