@@ -176,20 +176,23 @@ class SeatType:
             self.adults += 1
             counter['text'] = self.adults
             self.decr_1['state'] = 'normal'
+            self.type_of_ticket -= 1
         elif  id == "child":
             self.child += 1
             counter['text'] = self.child
             self.decr_2['state'] = 'normal'
+            self.type_of_ticket -= 1
         elif id == "student":
             self.student += 1 
             counter['text'] = self.student
             self.decr_3['state'] = 'normal'
+            self.type_of_ticket -= 1
         elif id == "pensioner":
             self.pensioner += 1
             counter['text'] = self.pensioner
             self.decr_4['state'] = 'normal'
+            self.type_of_ticket -= 1
 
-        self.type_of_ticket -= 1
         if self.type_of_ticket == 0:
             self.incr_1['state'] = 'disabled'
             self.incr_2['state'] = 'disabled'
@@ -202,18 +205,20 @@ class SeatType:
         print(f"S{seats.student}")
         print(f"P{seats.pensioner}\n")
 
-        # if self.type_of_ticket > 0:
-        #     self.decr_1['state'] = 'normal'
-        #     self.decr_2['state'] = 'normal'
-        #     self.decr_3['state'] = 'normal'
-        #     self.decr_4['state'] = 'normal'
+        seat_amt['text'] = seats.type_of_ticket
 
 
     def decrease(self, counter, id):
         if (self.adults > 0
             or self.child > 0
             or self.student > 0
-            or self.pensioner > 0):
+            or self.pensioner > 0
+
+            and self.adults <= self.type_of_ticket
+            and self.child <= self.type_of_ticket
+            and self.student <= self.type_of_ticket
+            and self.pensioner <= self.type_of_ticket
+            ):
             if id == "adult":
                 self.adults -= 1
                 counter['text'] = self.adults
@@ -251,6 +256,8 @@ class SeatType:
                 self.incr_2['state'] = 'normal'
                 self.incr_3['state'] = 'normal'
                 self.incr_4['state'] = 'normal'
+            
+            seat_amt['text'] = seats.type_of_ticket
 
 
     def __init__(self):
